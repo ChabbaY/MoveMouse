@@ -1,20 +1,21 @@
-import java.awt.MouseInfo;
-import java.awt.Point;
-import java.awt.Robot;
+import java.awt.*;
 
 public class MoveMouse {
     public static void main(String[] args) {
-        while (true) {
-            try {
-                Robot rob = new Robot();
+        try {
+            Robot rob = new Robot();
+
+            while (true) {
                 Point mouse = MouseInfo.getPointerInfo().getLocation();
                 rob.mouseMove((int)mouse.getX() + 10, (int)mouse.getY());
                 rob.delay(10000);
-                rob.mouseMove((int)mouse.getX(), (int)mouse.getY());
+
+                mouse = MouseInfo.getPointerInfo().getLocation();
+                rob.mouseMove((int)mouse.getX() - 10, (int)mouse.getY());
                 rob.delay(10000);
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+        } catch (AWTException e) {
+            e.printStackTrace();
         }
     }
 }
