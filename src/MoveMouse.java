@@ -5,6 +5,7 @@ public class MoveMouse {
         try {
             Robot rob = new Robot();
 
+            //noinspection InfiniteLoopStatement
             while (true) {
                 Point mouse = MouseInfo.getPointerInfo().getLocation();
                 rob.mouseMove((int)mouse.getX() + 10, (int)mouse.getY());
